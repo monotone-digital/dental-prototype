@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, MotionConfig, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { Services } from '@/components/services';
+import { FirstVisit } from '@/components/first-visit';
 import { ScrollStatement, ClosingHeading } from '@/components/scroll-statement';
 import { ArrowUpRight, ArrowRight, ArrowDown, X, Menu, Phone, MapPin, Star, Sparkles, MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -40,20 +41,20 @@ export default function Home() {
   return <MotionConfig reducedMotion="user">
     <motion.div aria-hidden="true" style={{scaleX:scrollYProgress}} className="pointer-events-none fixed inset-x-0 top-0 z-50 h-[3px] origin-left bg-[#afad8e]"/>
     <a href="#services" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-cream focus:p-4">Skip to content</a>
-    <header className="relative z-30 border-b border-ink/10 bg-cream">
+    <header className="sticky top-0 z-40 border-b border-ink/10 bg-cream/95 shadow-[0_4px_24px_-14px_rgba(48,42,42,.25)] backdrop-blur-xl">
       <div className="mx-auto flex h-[88px] max-w-[1600px] items-center justify-between px-6 md:px-12 lg:px-16">
         <Brand/>
-        <nav aria-label="Main navigation" className="hidden items-center gap-8 text-[12px] md:flex">
-          <a className="transition-colors hover:text-olive" href="#philosophy">Our approach</a><a className="transition-colors hover:text-olive" href="#services">Services</a><a className="transition-colors hover:text-olive" href="#stories">Kind words</a><a className="transition-colors hover:text-olive" href="#visit">Find us</a>
+        <nav aria-label="Main navigation" className="hidden items-center gap-6 text-[11px] lg:flex">
+          <a className="transition-colors hover:text-olive" href="#philosophy">Our approach</a><a className="transition-colors hover:text-olive" href="#services">Services</a><a className="transition-colors hover:text-olive" href="#first-visit">Your first visit</a><a className="transition-colors hover:text-olive" href="#stories">Kind words</a><a className="transition-colors hover:text-olive" href="#visit">Find us</a>
         </nav>
         <button onClick={openBooking} className="group hidden items-center gap-7 rounded-full bg-plum px-6 py-3.5 text-[11px] text-cream transition-colors hover:bg-olive sm:flex">Book a consultation <ArrowUpRight size={15} className="transition-transform group-hover:rotate-45"/></button>
-        <button aria-label={menuOpen?'Close navigation':'Open navigation'} aria-expanded={menuOpen} aria-controls="mobile-nav" onClick={()=>setMenuOpen(!menuOpen)} className="p-2 md:hidden">{menuOpen?<X size={23}/>:<Menu size={23}/>}</button>
+        <button aria-label={menuOpen?'Close navigation':'Open navigation'} aria-expanded={menuOpen} aria-controls="mobile-nav" onClick={()=>setMenuOpen(!menuOpen)} className="p-2 lg:hidden">{menuOpen?<X size={23}/>:<Menu size={23}/>}</button>
       </div>
-      <AnimatePresence>{menuOpen&&<motion.nav id="mobile-nav" aria-label="Mobile navigation" initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1}} exit={{height:0,opacity:0}} className="absolute w-full overflow-hidden border-b border-ink/10 bg-cream shadow-lg md:hidden"><div className="flex flex-col gap-6 px-7 py-8">{[['Our approach','philosophy'],['Services','services'],['Kind words','stories'],['Find us','visit']].map(([name,id])=><a key={id} href={`#${id}`} onClick={()=>setMenuOpen(false)} className="text-xl">{name}</a>)}<button onClick={openBooking} className="rounded-full bg-plum p-4 text-cream">Book a consultation</button></div></motion.nav>}</AnimatePresence>
+      <AnimatePresence>{menuOpen&&<motion.nav id="mobile-nav" aria-label="Mobile navigation" initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1}} exit={{height:0,opacity:0}} className="absolute top-full max-h-[calc(100dvh-88px)] w-full overflow-y-auto border-b border-ink/10 bg-cream shadow-lg lg:hidden"><div className="flex flex-col gap-6 px-7 py-8">{[['Our approach','philosophy'],['Services','services'],['Your first visit','first-visit'],['Kind words','stories'],['Find us','visit']].map(([name,id])=><a key={id} href={`#${id}`} onClick={()=>setMenuOpen(false)} className="text-xl">{name}</a>)}<button onClick={openBooking} className="rounded-full bg-plum p-4 text-cream">Book a consultation</button></div></motion.nav>}</AnimatePresence>
     </header>
 
     <main>
-      <section ref={hero} id="home" className="sticky top-0 z-0 isolate min-h-[740px] overflow-hidden bg-[#e8e4df] md:h-[calc(100svh-88px)] md:min-h-[710px] md:max-h-[1000px]">
+      <section ref={hero} id="home" className="sticky top-[88px] z-0 isolate min-h-[740px] overflow-hidden bg-[#e8e4df] md:h-[calc(100svh-88px)] md:min-h-[710px] md:max-h-[1000px]">
         <motion.div style={{y:reduced?0:heroY,scale:reduced?1:heroScale}} className="absolute inset-0 -z-10"><img src="/images/hero.webp" alt="Porcelain tooth sculpture embraced by a flowing blush silk ribbon" fetchPriority="high" className="h-full w-full object-cover object-[50%_44%] max-md:opacity-75"/></motion.div>
         <div className="absolute inset-0 -z-10 bg-linear-to-b from-[#e8e4df]/30 via-transparent to-[#e8e4df]/15"/>
         <div className="relative mx-auto h-full min-h-[740px] max-w-[1600px] px-6 pt-8 md:min-h-0 md:px-12 lg:px-16">
@@ -83,6 +84,8 @@ export default function Home() {
       </section>
 
       <Services onBook={openBooking}/>
+
+      <FirstVisit onBook={openBooking}/>
 
       <section id="stories" className="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 md:grid-cols-[1fr_1.7fr] md:gap-20 md:px-12 md:py-24 lg:px-16">
         <Reveal><Eyebrow>Kind words, real people</Eyebrow><h2 className="mt-6 font-serif text-[42px] leading-[1.1] tracking-[-1px]">Care that leaves<br/>an <em className="font-normal text-olive">impression.</em></h2><a href={maps} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-3 text-[10px] text-ink/65">4.4 / 5 · From 7 Google reviews <ArrowUpRight size={13}/></a></Reveal>

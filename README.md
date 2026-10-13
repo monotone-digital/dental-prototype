@@ -21,6 +21,9 @@ The static website is exported to `out/` and can be served by any static hosting
 
 ## Design and interactions
 
+- Sticky navigation stays at the top on desktop and mobile, with the hero pinned beneath its 88px height.
+- A first-visit guide adds three consultation steps, useful questions, and a preparation checklist, with an animated timeline and sticky desktop introduction.
+
 - Sticky sculptural hero that stays pinned while the rounded content layer scrolls over it, with scroll-driven image scaling and shading.
 - Dedicated forest-green services gallery with four selectable service cards, staggered entrances, image parallax, and contextual service descriptions.
 - Scroll-linked word reveals, rotating accents, reading-progress bar, and a sliding closing headline.
