@@ -21,8 +21,9 @@ The static website is exported to `out/` and can be served by any static hosting
 
 ## Design and interactions
 
-- Sculptural hero with subtle scroll parallax and animated wordmark reveal.
-- Responsive navigation, treatment tabs and expandable descriptions.
+- Sticky sculptural hero that stays pinned while the rounded content layer scrolls over it, with scroll-driven image scaling and shading.
+- Dedicated forest-green services gallery with four selectable service cards, staggered entrances, image parallax, and contextual service descriptions.
+- Scroll-linked word reveals, rotating accents, reading-progress bar, and a sliding closing headline.
 - Three supplied Google review excerpts in a manually controlled carousel.
 - Native accessible appointment dialog with phone, WhatsApp draft, and Google Maps links. No patient information is collected or stored.
 - Reduced-motion support and keyboard focus treatment.
@@ -33,6 +34,8 @@ All imagery was generated through the connected Magnific MCP using Seedream 5 Pr
 
 Hero: https://www.magnific.com/app/creation/gOTFTpVSXO
 Portrait: https://www.magnific.com/app/creation/UPMqM8Hwny
+Laser still life: https://www.magnific.com/app/creation/jUYCI7bLD0
+Collagen still life: https://www.magnific.com/app/creation/P3BrHnj42C
 
 The address, telephone number, review rating, and review excerpts come from the supplied clinic listing. Full hours, dental service availability, credentials, prices, and actual clinic photography should be confirmed with the client before public launch. WhatsApp uses the supplied clinic number; its account availability has not been independently verified.
 
