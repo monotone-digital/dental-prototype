@@ -12,9 +12,9 @@ function Word({ word, index, count, progress }: { word: string; index: number; c
 
 export function ScrollStatement() {
   const ref = useRef<HTMLHeadingElement>(null);
-  const words = 'Feeling good in your skin. Feeling yourself in your smile.'.split(' ');
+  const words = 'Healthy teeth. Comfortable care. More reasons to smile.'.split(' ');
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start 95%', 'end 45%'] });
-  return <h2 ref={ref} aria-label="Feeling good in your skin. Feeling yourself in your smile." className="max-w-[790px] font-serif text-[38px] leading-[1.18] tracking-[-1.4px] md:text-[57px]">
+  return <h2 ref={ref} aria-label="Healthy teeth. Comfortable care. More reasons to smile." className="max-w-[790px] font-serif text-[38px] leading-[1.18] tracking-[-1.4px] md:text-[57px]">
     <span aria-hidden="true">{words.map((word, index) => <Word key={index} word={word} index={index} count={words.length} progress={scrollYProgress} />)}</span>
   </h2>;
 }

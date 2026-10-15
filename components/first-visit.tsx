@@ -5,8 +5,8 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 import { ArrowUpRight, Check } from 'lucide-react';
 
 const steps = [
-  { title: 'Start with your story.', label: 'THE CONVERSATION', text: 'What brings you here? Share your concerns, your goals, and the questions on your mind. You don’t need to have a treatment in mind to start.', prompt: 'What would you like to feel more confident about?' },
-  { title: 'Explore your possibilities.', label: 'THE CLARITY', text: 'Use your consultation to understand suitable options, expected sessions, costs, and aftercare. Ask what each option involves before deciding on your next step.', prompt: 'What are the options, and what can I expect?' },
+  { title: 'Start with your story.', label: 'THE CONVERSATION', text: 'A routine checkup, a painful tooth, or a change to your smile? Share your dental concerns and the questions on your mind. You don’t need to have a treatment in mind to start.', prompt: 'What would you like to feel more confident about?' },
+  { title: 'Explore your possibilities.', label: 'THE CLARITY', text: 'Your dentist will assess your teeth and gums, then discuss suitable treatments, appointment plans, costs, and aftercare. Ask what each option involves before deciding on your next step.', prompt: 'What are the options, and what can I expect?' },
   { title: 'Take your next step.', label: 'THE BEGINNING', text: 'Discuss a plan that fits your priorities and confirm the details with the clinic. From your first appointment to follow-up questions, keep the conversation going.', prompt: 'What happens next, and how should I prepare?' },
 ];
 
@@ -25,7 +25,7 @@ export function FirstVisit({ onBook }: { onBook: () => void }) {
       <div className="grid items-start gap-14 md:grid-cols-[.9fr_1.1fr] md:gap-16 lg:gap-24">
         <div className="md:sticky md:top-[124px]">
           <motion.h2 id="first-visit-title" initial={{ opacity: reduced ? 1 : 0, y: reduced ? 0 : 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .4 }} transition={{ duration: .8 }} className="font-serif text-[48px] leading-[1.06] tracking-[-1.8px] text-plum lg:text-[65px]">Good care begins<br/>with a little<br/><em className="font-normal text-olive">understanding.</em></motion.h2>
-          <p className="mt-6 max-w-[290px] text-[12px] leading-[1.9] text-ink/65">New to Renew? Make space for your questions, get to know your options, and feel ready for the next step.</p>
+          <p className="mt-6 max-w-[290px] text-[12px] leading-[1.9] text-ink/65">Your first visit to Hafiz Ayub Dental Care? Make space for your questions, get to know your options, and feel ready for the next step.</p>
           <button onClick={onBook} className="group mt-7 inline-flex items-center gap-8 border-b border-plum/40 pb-3 text-[11px] text-plum">Let’s have a conversation <ArrowUpRight size={17} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"/></button>
           <div aria-hidden="true" className="mt-12 hidden items-center gap-5 text-plum/35 md:flex"><motion.span style={{ rotate: reduced ? 0 : rotate }} className="inline-block text-[83px] leading-none">✳</motion.span><span className="text-[9px] uppercase leading-[1.9] tracking-[.16em]">Your pace.<br/>Your questions.<br/>Your next chapter.</span></div>
         </div>
@@ -42,7 +42,7 @@ export function FirstVisit({ onBook }: { onBook: () => void }) {
       </div>
       <motion.div initial={{ opacity: reduced ? 1 : 0, y: reduced ? 0 : 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .7 }} className="mt-14 grid gap-5 rounded-[3px] border border-plum/15 px-6 py-6 md:mt-20 md:grid-cols-[1fr_2fr] md:items-center md:px-8">
         <p className="font-serif text-[23px] text-plum">A little preparation, more peace of mind.</p>
-        <ul className="flex flex-wrap gap-x-7 gap-y-3 text-[11px] text-ink/65">{['Note down your questions', 'Share previous treatment details', 'Call to confirm your visit'].map(item => <li key={item} className="flex items-center gap-2"><Check size={13} strokeWidth={1.5} className="shrink-0 text-olive"/>{item}</li>)}</ul>
+        <ul className="flex flex-wrap gap-x-7 gap-y-3 text-[11px] text-ink/65">{['Note down your questions', 'Bring previous dental records', 'Call to confirm your visit'].map(item => <li key={item} className="flex items-center gap-2"><Check size={13} strokeWidth={1.5} className="shrink-0 text-olive"/>{item}</li>)}</ul>
       </motion.div>
     </div>
   </section>;
