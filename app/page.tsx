@@ -68,7 +68,7 @@ export default function Home() {
           </motion.div>
           <a href="#services" className="absolute right-10 top-28 hidden h-28 w-28 items-center justify-center lg:flex" aria-label="Explore our dental services"><svg className="orbit absolute inset-0 h-full w-full" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="circle" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs><text fill="currentColor" fontSize="9.3" letterSpacing="3.3"><textPath href="#circle">CARE • SMILE • CONFIDENCE • </textPath></text></svg><Sparkles size={25} strokeWidth={1}/></a>
           <motion.div initial={{opacity:0,y:40}} animate={{opacity:1,y:0}} transition={{duration:1.1,delay:.3,ease:[.22,1,.36,1]}} className="absolute inset-x-5 bottom-[120px] text-center md:inset-x-10 md:bottom-[84px]">
-            <p aria-hidden="true" className="font-serif text-[clamp(48px,14.5vw,224px)] leading-[.77] tracking-[-.065em] text-plum">Hafiz Ayub<span className="relative -top-[.47em] ml-[.05em] inline-block text-[.26em] font-normal tracking-normal">✳</span></p>
+            <p className="whitespace-nowrap font-serif text-[clamp(48px,14.5vw,224px)] leading-[.77] tracking-[-.065em] text-plum">Smile freely.<span aria-hidden="true" className="relative -top-[.47em] ml-[.05em] inline-block text-[.26em] font-normal tracking-normal">✳</span></p>
           </motion.div>
           <div className="absolute inset-x-6 bottom-6 flex items-end justify-between border-t border-ink/20 pt-5 md:inset-x-12 md:bottom-6 lg:inset-x-16">
             <p className="text-[9px] uppercase leading-[1.8] tracking-[.22em]">Healthy teeth.<br className="sm:hidden"/> Confident smiles.</p>
